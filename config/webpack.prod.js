@@ -24,7 +24,7 @@ const prodConfig = {
                 },
                 "react-dom": {
                   singleton: true,
-                  requiredVersion: deps["react-dom"],
+                  requiredVersion: deps["react-dom"], 
                 },
                 "@material-ui/core": {
                   singleton: true,

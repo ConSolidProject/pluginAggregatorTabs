@@ -3,9 +3,7 @@ import {
   StylesProvider,
   createGenerateClassName,
 } from "@material-ui/core/styles";
-import GenericRemoteComponent from './utils/GenericRemoteComponent'
-import mem from 'mem'
-import System from '../../../consolid-react-ui/src/lib/components/System'
+import System from 'consolid-react-ui'
 
 import { Drawer, CssBaseline, Divider, SvgIcon } from "@material-ui/core";
 
@@ -14,31 +12,19 @@ const packageJSON = require("../package.json");
 
 const generateClassname = createGenerateClassName({
   productionPrefix: packageJSON.name,
-  // disableGlobal: true,
   seed: packageJSON.name,
 });
 
-// const getComponent = (component, sharedProps) => {
-//   let MyComponent;
-//   MyComponent = (
-//     <System
-//       system={{
-//         module: component.module,
-//         url: component.url,
-//         scope: component.scope,
-//       }}
-//       sharedProps={sharedProps.sharedProps}
-//       module={component}
-//     />
-//   );
-//   return MyComponent
-// };
-
 const Plugin = ({sharedProps, module: mod}) => {
-  const [activePlugin, setActivePlugin] = useState(Object.keys(mod.children)[0]);
+  let initial
+  (mod.children && Object.keys(mod.children)[0]) ? initial = Object.keys(mod.children)[0] : null
+  const [activePlugin, setActivePlugin] = useState(initial);
+
   function activatePlugin(plugin) {
     setActivePlugin(plugin);
   }
+
+  if (!mod.children) return <p>This plugin needs child modules to render and cannot be used as standalone. No child modules were passed. Please use always in a container application using an LBDserver configuration.</p>
 
   return (
     <div>

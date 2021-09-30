@@ -3,7 +3,7 @@ import {
   StylesProvider,
   createGenerateClassName,
 } from "@material-ui/core/styles";
-import System from 'consolid-react-ui'
+import {System} from 'consolid-react-ui'
 
 import { Drawer, CssBaseline, Divider, SvgIcon } from "@material-ui/core";
 
@@ -18,6 +18,7 @@ const generateClassname = createGenerateClassName({
 const Plugin = ({sharedProps, module: mod}) => {
   let initial
   (mod.children && Object.keys(mod.children)[0]) ? initial = Object.keys(mod.children)[0] : null
+  console.log(`initial`, initial)
   const [activePlugin, setActivePlugin] = useState(initial);
 
   function activatePlugin(plugin) {

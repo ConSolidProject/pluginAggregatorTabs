@@ -70,7 +70,6 @@ function standaloneRunner(WrappedComponent, module) {
     }; 
 
     const children = null;
-    const inactive = false;
 
     const drawerWidth = 450
     return (
@@ -83,21 +82,10 @@ function standaloneRunner(WrappedComponent, module) {
       >
         {openOptions ? <></> : <ChevronLeft />}
       </IconButton>
-        <Options
-          openOptions={openOptions}
-          setOpenOptions={setOpenOptions}
-          trigger={trigger}
-          setTrigger={setTrigger}
-          projects={projects}
-          setProjects={setProjects}
-          store={store}
-          drawerWidth={"25%"}
-        />{" "}
         <WrappedComponent
           sharedProps={sharedProps}
           module={module}
           children={children}
-          inactive={inactive}
         />
       </div>
     );

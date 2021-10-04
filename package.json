@@ -20,7 +20,7 @@
     "browserify-fs": "^1.0.0",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
-    "consolid-react-ui": "0.0.13",
+    "consolid-react-ui": "0.0.14",
     "crypto-browserify": "^3.12.0",
     "events": "^3.3.0",
     "graphql-ld": "^1.2.0",
